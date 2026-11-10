@@ -1,0 +1,8 @@
+dist/
+.vscode-test/
+coverage/
+package-lock.json
+*.vsix
+.github/release.yml
+.github/rulesets/
+docs/repo-setup.md
