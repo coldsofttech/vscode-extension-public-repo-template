@@ -10,5 +10,6 @@ describe('extension', () => {
 
     const commands = await vscode.commands.getCommands(true);
     assert.ok(commands.includes('my-extension.helloWorld'));
+    assert.ok(commands.includes('my-extension.addNote'));
   });
 });

@@ -7,4 +7,4 @@ All notable changes to this project are documented here. The format follows [Kee
 ### Added
 
 - VS Code extension starter: a sample extension, tests, and build and release workflows with optional Marketplace and Open VSX publishing.
-- A runnable example extension showing a tree view, commands and a status bar item.
+- An example notes feature showing a tree view, commands and a status bar item.

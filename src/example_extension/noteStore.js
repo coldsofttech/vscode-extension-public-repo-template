@@ -1,9 +1,17 @@
 /**
+ * A single note.
+ * @typedef {object} Note
+ * @property {number} id Unique identifier within the store.
+ * @property {string} text The note text.
+ */
+
+/**
  * A tiny in-memory list of notes. It has no `vscode` dependency, so it is easy to unit test.
  */
-class NoteStore {
-  /** @param {{ id: number, text: string }[]} [initial] Notes restored from storage. */
+export class NoteStore {
+  /** @param {Note[]} [initial] Notes restored from storage. */
   constructor(initial = []) {
+    /** @type {Note[]} */
     this.notes = [...initial];
     this.nextId = this.notes.reduce((max, n) => Math.max(max, n.id), 0) + 1;
   }
@@ -27,5 +35,3 @@ class NoteStore {
     this.notes = [];
   }
 }
-
-module.exports = { NoteStore };
