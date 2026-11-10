@@ -21,10 +21,20 @@ body:
   - type: input
     id: version
     attributes:
-      label: Version
-      description: Release or commit you are using.
+      label: Extension version
+      description: Shown in the Extensions view, or the release or commit you are using.
+  - type: input
+    id: vscode-version
+    attributes:
+      label: VS Code version
+      description: Run **Help > About**, and note if you use a fork such as VSCodium or Cursor.
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: e.g. Windows 11, macOS 15, Ubuntu 24.04
   - type: textarea
     id: logs
     attributes:
       label: Logs or screenshots
-      description: Remove any secrets or personal information first.
+      description: Include errors from the **Output** panel or **Help > Toggle Developer Tools**. Remove any secrets or personal information first.

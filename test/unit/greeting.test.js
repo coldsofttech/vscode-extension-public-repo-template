@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildGreeting } from '../../src/utils/greeting.js';
+import { buildGreeting } from '../../src/example_extension/greeting.js';
 
 describe('buildGreeting', () => {
   it('greets the given name', () => {

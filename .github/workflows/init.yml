@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   init:
-    if: github.repository != 'coldsofttech/public-repo-template'
+    if: github.repository != 'coldsofttech/vscode-extension-public-repo-template'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -25,10 +25,10 @@ jobs:
         run: |
           git ls-files -z -- . \
             ':(exclude).github/workflows' ':(exclude)LICENSE' ':(exclude).pre-commit-config.yaml' \
-            | xargs -0 grep -lZ -e coldsofttech -e public-repo-template \
+            | xargs -0 grep -lZ -e coldsofttech -e vscode-extension-public-repo-template \
             | xargs -0 -r sed -i \
-                -e "s|coldsofttech/public-repo-template|$REPO|g" \
-                -e "s|public-repo-template|$NAME|g" \
+                -e "s|coldsofttech/vscode-extension-public-repo-template|$REPO|g" \
+                -e "s|vscode-extension-public-repo-template|$NAME|g" \
                 -e "s|coldsofttech|$OWNER|g"
 
       - name: Open pull request

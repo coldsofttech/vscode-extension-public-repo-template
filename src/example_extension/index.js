@@ -1,11 +1,13 @@
 import * as vscode from 'vscode';
+import { registerHelloWorld } from './helloWorld.js';
 import { NoteStore } from './noteStore.js';
 import { NotesProvider } from './notesProvider.js';
 
 const STATE_KEY = 'my-extension.notes';
 
 /**
- * Registers the example notes feature: a tree view, commands, a status bar item and a setting.
+ * Registers the example features: a Hello World command, and a notes tree view with commands,
+ * a status bar item and a setting.
  * @param {vscode.ExtensionContext} context
  */
 export function registerExampleExtension(context) {
@@ -24,6 +26,7 @@ export function registerExampleExtension(context) {
   update();
 
   context.subscriptions.push(
+    registerHelloWorld(),
     provider,
     statusBar,
     vscode.window.registerTreeDataProvider('my-extension.notes', provider),

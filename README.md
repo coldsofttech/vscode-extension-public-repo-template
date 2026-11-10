@@ -1,10 +1,10 @@
 # vscode-extension-public-repo-template
 
-A ready-to-use starting point for building and publishing a Visual Studio Code extension, with a working sample extension, tests, continuous integration and one-tag releases already in place.
+A ready-to-use starting point for building and publishing a Visual Studio Code extension, with working examples, tests, continuous integration and one-tag releases already in place.
 
 ## What you get
 
-- A minimal "Hello World" extension written in plain JavaScript, with editor type checking
+- Example features in plain JavaScript: a Hello World command, and a notes view with commands, a status bar item and a setting
 - One-press debugging (F5) and live rebuilding while you work
 - Fast unit tests and tests that run inside a real VS Code
 - Linting, formatting and security checks on every pull request
@@ -15,11 +15,12 @@ A ready-to-use starting point for building and publishing a Visual Studio Code e
 
 1. Click **Use this template** on GitHub and create your new repository.
 2. Run the **Init** workflow from the Actions tab and merge the pull request it opens. This fills in your owner and repository name. Then delete `.github/workflows/init.yml`.
-3. Rename the extension in `package.json` (`name`, `displayName`, `publisher`, `description`) and update the command and setting IDs that start with `my-extension`.
-4. Replace `media/icon.png` with your own 128x128 icon, and replace this README with a description of your extension.
-5. Install dependencies and press **F5** in VS Code to launch your extension in a test window: `npm install`.
-6. Apply the repository protections by following the [setup guide](docs/repo-setup.md).
-7. Install the commit checks: `pip install pre-commit && pre-commit install --hook-type pre-commit --hook-type post-commit`.
+3. Rename the extension in `package.json` (`name`, `displayName`, `publisher`, `description`) and replace the `my-extension` prefix on command, view and setting IDs.
+4. Run `npm install`, then press **F5** in VS Code to launch your extension in a test window. Try **My Extension: Hello World** from the Command Palette, and the note icon in the Activity Bar.
+5. Replace the examples in `src/example_extension/` with your own features. The [development guide](docs/development.md#starting-your-own-extension) lists what to remove.
+6. Replace `media/icon.png` with your own 128x128 icon, and replace this README with a description of your extension.
+7. Add your contact details in `CODE_OF_CONDUCT.md`, and apply the repository protections by following the [setup guide](docs/repo-setup.md).
+8. Install the commit checks: `pip install pre-commit && pre-commit install --hook-type pre-commit --hook-type post-commit`.
 
 ## Releasing
 
@@ -31,7 +32,7 @@ See the [documentation](docs/README.md) for development, testing, architecture a
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). Please report security issues privately as described in [SECURITY.md](SECURITY.md).
+See [CONTRIBUTING.md](CONTRIBUTING.md). Please report security issues privately as described in [SECURITY.md](SECURITY.md). For help, see [SUPPORT.md](SUPPORT.md).
 
 ## License
 
