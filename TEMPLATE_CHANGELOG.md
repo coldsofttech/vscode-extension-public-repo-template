@@ -4,6 +4,13 @@ All notable changes to this template are documented here. This file is removed f
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-15
+
+### Fixed
+
+- Dependabot security updates no longer fail on the vulnerable `minimatch` dependency.
+- CodeQL no longer fails on a Python scan, as the template contains no Python code.
+
 ## [0.1.0] - 2026-11-15
 
 ### Added
