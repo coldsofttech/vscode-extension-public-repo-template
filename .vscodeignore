@@ -5,7 +5,6 @@
 .vscode-test.mjs
 .claude/**
 docs/**
-examples/**
 scripts/**
 src/**
 test/**

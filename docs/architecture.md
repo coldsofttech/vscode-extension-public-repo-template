@@ -4,6 +4,7 @@
 src/
   extension.js          activate() and deactivate(); registers everything
   commands/             one file per command, each exports a register* function
+  example_extension/    sample notes feature (tree view, commands, status bar); delete when starting your own
   utils/                pure logic with no vscode import
 test/
   unit/                 Vitest, runs in Node

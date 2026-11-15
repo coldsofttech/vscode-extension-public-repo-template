@@ -7,4 +7,4 @@ Technical documentation for this project lives in this folder. The top-level [RE
 - [Testing](testing.md): unit and integration tests, and how they run in CI.
 - [Publishing](publishing.md): tokens, the release workflow and marketplace publishing.
 - [Repository setup](repo-setup.md): protections, ruleset and manual steps for new repos.
-- [Example extension](../examples/example_extension/README.md): a runnable notes extension showing a tree view, commands, a status bar item and a setting.
+- [Example extension](../src/example_extension/README.md): a notes feature showing a tree view, commands, a status bar item and a setting.

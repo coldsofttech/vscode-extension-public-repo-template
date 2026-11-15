@@ -32,6 +32,24 @@
         "command": "my-extension.helloWorld",
         "title": "Hello World",
         "category": "My Extension"
+      },
+      {
+        "command": "my-extension.addNote",
+        "title": "Add Note",
+        "category": "My Extension",
+        "icon": "$(add)"
+      },
+      {
+        "command": "my-extension.deleteNote",
+        "title": "Delete Note",
+        "category": "My Extension",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "my-extension.clearNotes",
+        "title": "Clear Notes",
+        "category": "My Extension",
+        "icon": "$(clear-all)"
       }
     ],
     "configuration": {
@@ -41,8 +59,58 @@
           "type": "string",
           "default": "World",
           "description": "Name used in the Hello World greeting."
+        },
+        "my-extension.maxNotes": {
+          "type": "number",
+          "default": 10,
+          "minimum": 1,
+          "description": "Maximum number of notes to keep. The oldest note is dropped when the limit is reached."
         }
       }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "my-extension",
+          "title": "My Extension",
+          "icon": "$(note)"
+        }
+      ]
+    },
+    "views": {
+      "my-extension": [
+        {
+          "id": "my-extension.notes",
+          "name": "Notes"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "my-extension.addNote",
+          "when": "view == my-extension.notes",
+          "group": "navigation"
+        },
+        {
+          "command": "my-extension.clearNotes",
+          "when": "view == my-extension.notes",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "my-extension.deleteNote",
+          "when": "view == my-extension.notes && viewItem == note",
+          "group": "inline"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "my-extension.deleteNote",
+          "when": "false"
+        }
+      ]
     }
   },
   "scripts": {

@@ -1,8 +1,11 @@
-const vscode = require('vscode');
+import * as vscode from 'vscode';
 
-/** Feeds the store's notes to the "Notes" tree view. */
-class NotesProvider {
-  /** @param {import('./noteStore.cjs').NoteStore} store */
+/**
+ * Feeds the store's notes to the "Notes" tree view.
+ * @implements {vscode.TreeDataProvider<import('./noteStore.js').Note>}
+ */
+export class NotesProvider {
+  /** @param {import('./noteStore.js').NoteStore} store */
   constructor(store) {
     this.store = store;
     this._onDidChange = new vscode.EventEmitter();
@@ -13,7 +16,7 @@ class NotesProvider {
     this._onDidChange.fire(undefined);
   }
 
-  /** @param {{ id: number, text: string }} note */
+  /** @param {import('./noteStore.js').Note} note */
   getTreeItem(note) {
     const item = new vscode.TreeItem(note.text, vscode.TreeItemCollapsibleState.None);
     item.id = String(note.id);
@@ -30,5 +33,3 @@ class NotesProvider {
     this._onDidChange.dispose();
   }
 }
-
-module.exports = { NotesProvider };
