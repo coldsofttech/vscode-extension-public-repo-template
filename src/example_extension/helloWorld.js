@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { buildGreeting } from '../utils/greeting.js';
+import { buildGreeting } from './greeting.js';
 
 /**
  * Registers the `my-extension.helloWorld` command.

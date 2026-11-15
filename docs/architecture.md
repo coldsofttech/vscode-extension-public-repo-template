@@ -3,9 +3,10 @@
 ```text
 src/
   extension.js          activate() and deactivate(); registers everything
-  commands/             one file per command, each exports a register* function
-  example_extension/    sample notes feature (tree view, commands, status bar); delete when starting your own
-  utils/                pure logic with no vscode import
+  example_extension/    sample features (Hello World command, notes tree view); replace with your own
+    noteStore.js        pure logic with no vscode import, unit tested
+    notesProvider.js    tree view wiring
+    helloWorld.js       one command per file, each exports a register* function
 test/
   unit/                 Vitest, runs in Node
   integration/          Mocha, runs inside VS Code (CommonJS, *.test.cjs)

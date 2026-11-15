@@ -77,3 +77,18 @@ jobs:
           name: vsix
           path: '*.vsix'
           retention-days: 7
+
+  # Single required check for the `main` ruleset (see .github/rulesets/main.json).
+  ci:
+    if: always()
+    needs: [pre-commit, checks, integration, package]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require all jobs to succeed
+        env:
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          for result in $RESULTS; do
+            [ "$result" = "success" ] || { echo "A required job did not succeed: $RESULTS" >&2; exit 1; }
+          done
