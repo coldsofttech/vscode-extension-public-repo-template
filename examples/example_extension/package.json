@@ -1,0 +1,94 @@
+{
+  "name": "example-extension",
+  "displayName": "Example Extension",
+  "description": "A small notes extension showing commands, a tree view, a status bar item and a setting.",
+  "version": "0.0.1",
+  "publisher": "coldsofttech",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./src/extension.cjs",
+  "activationEvents": [],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "example-extension",
+          "title": "Example Notes",
+          "icon": "$(note)"
+        }
+      ]
+    },
+    "views": {
+      "example-extension": [
+        {
+          "id": "example-extension.notes",
+          "name": "Notes"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "example-extension.addNote",
+        "title": "Add Note",
+        "category": "Example",
+        "icon": "$(add)"
+      },
+      {
+        "command": "example-extension.deleteNote",
+        "title": "Delete Note",
+        "category": "Example",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "example-extension.clearNotes",
+        "title": "Clear Notes",
+        "category": "Example",
+        "icon": "$(clear-all)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "example-extension.addNote",
+          "when": "view == example-extension.notes",
+          "group": "navigation"
+        },
+        {
+          "command": "example-extension.clearNotes",
+          "when": "view == example-extension.notes",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "example-extension.deleteNote",
+          "when": "view == example-extension.notes && viewItem == note",
+          "group": "inline"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "example-extension.deleteNote",
+          "when": "false"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Example Extension",
+      "properties": {
+        "example-extension.maxNotes": {
+          "type": "number",
+          "default": 10,
+          "minimum": 1,
+          "description": "Maximum number of notes to keep. The oldest note is dropped when the limit is reached."
+        }
+      }
+    }
+  }
+}
