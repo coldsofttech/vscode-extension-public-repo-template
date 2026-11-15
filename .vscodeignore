@@ -26,3 +26,6 @@ CONTRIBUTING.md
 SECURITY.md
 SUPPORT.md
 **/*.vsix
+TEMPLATE_CHANGELOG.md
+sweepito.toml
+vitest.config.mjs

@@ -129,7 +129,7 @@
     "repo:settings": "node scripts/apply-repo-settings.mjs"
   },
   "devDependencies": {
-    "@eslint/js": "^9.0.0",
+    "@eslint/js": "^10.0.1",
     "@types/mocha": "^10.0.0",
     "@types/node": "^22.20.5",
     "@types/vscode": "^1.90.0",
@@ -137,7 +137,7 @@
     "@vscode/test-electron": "^3.1.0",
     "@vscode/vsce": "^4.1.0",
     "esbuild": "^0.28.2",
-    "eslint": "^9.0.0",
+    "eslint": "^10.14.0",
     "globals": "^17.14.0",
     "mocha": "^12.0.3",
     "prettier": "^3.0.0",
