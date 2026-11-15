@@ -43,3 +43,13 @@ Search for `my-extension` and `My Extension` and replace them. The command IDs, 
 ## Starting your own extension
 
 The sample code lives in `src/example_extension/`. When you are ready, remove that folder, its unit tests in `test/unit/`, its contributions in `package.json` (`commands`, `views`, `viewsContainers`, `menus`, `configuration`) and the call in `src/extension.js`, then add your own.
+
+## Cleanup with Sweepito
+
+`sweepito.toml` configures [Sweepito](https://github.com/coldsofttech/Sweepito), which the pre-commit config runs after each commit to remove git-ignored build leftovers. Install the hooks with `pre-commit install --hook-type pre-commit --hook-type post-commit`.
+
+- Sweepito's `node` profile handles tool caches. Its rules for `dist/` and `coverage/` are opt-in, so they are left alone unless you enable them (`[clean] enable = ["node.dist"]`).
+- Sweepito has no VS Code extension profile, so `sweepito.toml` adds a custom rule, `vscode.vsix`, that removes packaged `*.vsix` files. Attach custom rules to the `node` profile, otherwise the `profiles` setting hides them.
+- `node_modules/` and `.vscode-test/` are excluded, so installed dependencies and the VS Code build used by integration tests are not downloaded again after every commit.
+
+Preview what would be removed with `sweepito scan`.

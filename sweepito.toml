@@ -1,0 +1,21 @@
+[defaults]
+# "node" covers the usual tool caches (dist/ and coverage/ are opt-in). VS Code specifics are custom rules below.
+profiles = ["node"]
+risk = "safe"
+
+[clean]
+# Exclusions always win over cleanup rules. Keep installed dependencies and the VS Code build that
+# integration tests download into .vscode-test/, so neither is fetched again after every commit.
+exclude = ["node_modules/", ".vscode-test/"]
+
+[hook]
+quiet = true
+
+# Sweepito has no built-in VS Code extension profile, so this is a custom rule. It is attached to the
+# "node" profile because `profiles` above limits which profiles are active.
+[[rule]]
+id = "vscode.vsix"
+paths = ["*.vsix"]
+requires = ["package.json"]
+profile = "node"
+description = "Packaged extension builds (npm run package)"
