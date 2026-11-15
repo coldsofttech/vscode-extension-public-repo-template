@@ -5,7 +5,10 @@ desktop.ini
 
 # Editors and IDEs
 .idea/
-.vscode/
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/extensions.json
 *.swp
 *.swo
 *~
@@ -26,3 +29,10 @@ desktop.ini
 .claude/settings.local.json
 
 # Add language- or tool-specific ignores below
+
+# Node and extension build output
+node_modules/
+dist/
+coverage/
+.vscode-test/
+*.vsix

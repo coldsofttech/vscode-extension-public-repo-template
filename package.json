@@ -1,0 +1,148 @@
+{
+  "name": "my-extension",
+  "displayName": "My Extension",
+  "description": "A short description of what your extension does.",
+  "version": "0.1.0",
+  "publisher": "coldsofttech",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coldsofttech/vscode-extension-public-repo-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/coldsofttech/vscode-extension-public-repo-template/issues"
+  },
+  "homepage": "https://github.com/coldsofttech/vscode-extension-public-repo-template#readme",
+  "engines": {
+    "vscode": "^1.90.0",
+    "node": ">=20"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "template"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "my-extension.helloWorld",
+        "title": "Hello World",
+        "category": "My Extension"
+      },
+      {
+        "command": "my-extension.addNote",
+        "title": "Add Note",
+        "category": "My Extension",
+        "icon": "$(add)"
+      },
+      {
+        "command": "my-extension.deleteNote",
+        "title": "Delete Note",
+        "category": "My Extension",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "my-extension.clearNotes",
+        "title": "Clear Notes",
+        "category": "My Extension",
+        "icon": "$(clear-all)"
+      }
+    ],
+    "configuration": {
+      "title": "My Extension",
+      "properties": {
+        "my-extension.greetingName": {
+          "type": "string",
+          "default": "World",
+          "description": "Name used in the Hello World greeting."
+        },
+        "my-extension.maxNotes": {
+          "type": "number",
+          "default": 10,
+          "minimum": 1,
+          "description": "Maximum number of notes to keep. The oldest note is dropped when the limit is reached."
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "my-extension",
+          "title": "My Extension",
+          "icon": "$(note)"
+        }
+      ]
+    },
+    "views": {
+      "my-extension": [
+        {
+          "id": "my-extension.notes",
+          "name": "Notes"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "my-extension.addNote",
+          "when": "view == my-extension.notes",
+          "group": "navigation"
+        },
+        {
+          "command": "my-extension.clearNotes",
+          "when": "view == my-extension.notes",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "my-extension.deleteNote",
+          "when": "view == my-extension.notes && viewItem == note",
+          "group": "inline"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "my-extension.deleteNote",
+          "when": "false"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build:production",
+    "build": "node esbuild.mjs",
+    "build:production": "node esbuild.mjs --production",
+    "watch": "node esbuild.mjs --watch",
+    "lint": "eslint .",
+    "typecheck": "tsc -p jsconfig.json",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "vitest run",
+    "test:integration": "npm run build && vscode-test",
+    "package": "vsce package --no-dependencies",
+    "repo:settings": "node scripts/apply-repo-settings.mjs"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^22.20.5",
+    "@types/vscode": "^1.90.0",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.1.0",
+    "@vscode/vsce": "^3.2.0",
+    "esbuild": "^0.28.2",
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "mocha": "^10.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.6.0",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
+  }
+}

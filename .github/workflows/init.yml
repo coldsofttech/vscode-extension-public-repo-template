@@ -1,7 +1,8 @@
 name: Init
 
 # Run once from the Actions tab in a repository created from the template.
-# Replaces the template's owner and repository name, then opens a pull request.
+# Replaces the template's owner and repository name, removes TEMPLATE_CHANGELOG.md, then opens
+# a pull request.
 on:
   workflow_dispatch:
 
@@ -11,7 +12,7 @@ permissions:
 
 jobs:
   init:
-    if: github.repository != 'coldsofttech/public-repo-template'
+    if: github.repository != 'coldsofttech/vscode-extension-public-repo-template'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -25,11 +26,14 @@ jobs:
         run: |
           git ls-files -z -- . \
             ':(exclude).github/workflows' ':(exclude)LICENSE' ':(exclude).pre-commit-config.yaml' \
-            | xargs -0 grep -lZ -e coldsofttech -e public-repo-template \
+            | xargs -0 grep -lZ -e coldsofttech -e vscode-extension-public-repo-template \
             | xargs -0 -r sed -i \
-                -e "s|coldsofttech/public-repo-template|$REPO|g" \
-                -e "s|public-repo-template|$NAME|g" \
+                -e "s|coldsofttech/vscode-extension-public-repo-template|$REPO|g" \
+                -e "s|vscode-extension-public-repo-template|$NAME|g" \
                 -e "s|coldsofttech|$OWNER|g"
+
+      - name: Remove the template changelog
+        run: git rm --ignore-unmatch -q TEMPLATE_CHANGELOG.md
 
       - name: Open pull request
         env:
@@ -48,4 +52,4 @@ jobs:
           git push origin chore/init-template
           gh pr create --base "$BASE" --head chore/init-template \
             --title "chore: initialize repository from template" \
-            --body "Replaces the template owner and repository name. Review, merge, then delete \`.github/workflows/init.yml\`."
+            --body "Replaces the template owner and repository name and removes \`TEMPLATE_CHANGELOG.md\`. Review, merge, then delete \`.github/workflows/init.yml\`."

@@ -5,8 +5,8 @@ Template repositories copy files only, not settings. After creating a repo from 
 ## Automated
 
 ```bash
-python scripts/apply_repo_settings.py            # current repo
-python scripts/apply_repo_settings.py owner/repo # a specific repo
+npm run repo:settings                # current repo
+npm run repo:settings -- owner/repo  # a specific repo
 ```
 
 This configures squash-only merging, delete branch on merge, the `skip-changelog` label, secret scanning with push protection, Dependabot alerts and security updates, CodeQL default setup, and the `main` ruleset from `.github/rulesets/main.json`. Requires the `gh` CLI with admin rights.
@@ -41,4 +41,4 @@ Repository admins can bypass the ruleset through a pull request. This lets a sol
 - Run the **Init** workflow (Actions tab) to replace the template owner and repository name, merge its pull request, then delete `.github/workflows/init.yml`. It requires "Allow GitHub Actions to create and approve pull requests", which the settings script turns on. If the owner is an organization, change `.github/CODEOWNERS` to a team.
 - Fill in the contact method in `CODE_OF_CONDUCT.md`.
 - Run `pre-commit install --hook-type pre-commit --hook-type post-commit` locally (the post-commit type is needed for Sweepito cleanup).
-- CodeQL default setup only works once the repo contains a supported language, so run the script after adding code.
+- CodeQL uses GitHub's default setup (applied by the script), so there is no CodeQL workflow file in the repository. It only works once the repo contains a supported language, so run the script after adding code.

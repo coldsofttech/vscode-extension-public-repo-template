@@ -17,6 +17,10 @@ We pledge to make participation in this community a harassment-free experience f
 - Publishing others' private information without permission
 - Other conduct that would reasonably be considered inappropriate in a professional setting
 
+## Scope
+
+This code applies in all project spaces: issues, pull requests, discussions and reviews, and when someone represents the project in public, including the extension's marketplace listing.
+
 ## Enforcement
 
 Maintainers may remove, edit or reject contributions that violate this code, and may temporarily or permanently ban contributors for behavior they deem inappropriate.
