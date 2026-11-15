@@ -57,7 +57,8 @@
     "test": "npm run test:unit && npm run test:integration",
     "test:unit": "vitest run",
     "test:integration": "npm run build && vscode-test",
-    "package": "vsce package --no-dependencies"
+    "package": "vsce package --no-dependencies",
+    "repo:settings": "node scripts/apply-repo-settings.mjs"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",

@@ -5,8 +5,8 @@ Template repositories copy files only, not settings. After creating a repo from 
 ## Automated
 
 ```bash
-python scripts/apply_repo_settings.py            # current repo
-python scripts/apply_repo_settings.py owner/repo # a specific repo
+npm run repo:settings                # current repo
+npm run repo:settings -- owner/repo  # a specific repo
 ```
 
 This configures squash-only merging, delete branch on merge, the `skip-changelog` label, secret scanning with push protection, Dependabot alerts and security updates, CodeQL default setup, and the `main` ruleset from `.github/rulesets/main.json`. Requires the `gh` CLI with admin rights.
