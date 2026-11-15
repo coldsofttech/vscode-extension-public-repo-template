@@ -1,0 +1,78 @@
+{
+  "name": "my-extension",
+  "displayName": "My Extension",
+  "description": "A short description of what your extension does.",
+  "version": "0.0.1",
+  "publisher": "coldsofttech",
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coldsofttech/vscode-extension-public-repo-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/coldsofttech/vscode-extension-public-repo-template/issues"
+  },
+  "homepage": "https://github.com/coldsofttech/vscode-extension-public-repo-template#readme",
+  "engines": {
+    "vscode": "^1.90.0",
+    "node": ">=20"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "template"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "contributes": {
+    "commands": [
+      {
+        "command": "my-extension.helloWorld",
+        "title": "Hello World",
+        "category": "My Extension"
+      }
+    ],
+    "configuration": {
+      "title": "My Extension",
+      "properties": {
+        "my-extension.greetingName": {
+          "type": "string",
+          "default": "World",
+          "description": "Name used in the Hello World greeting."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run build:production",
+    "build": "node esbuild.mjs",
+    "build:production": "node esbuild.mjs --production",
+    "watch": "node esbuild.mjs --watch",
+    "lint": "eslint .",
+    "typecheck": "tsc -p jsconfig.json",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "npm run test:unit && npm run test:integration",
+    "test:unit": "vitest run",
+    "test:integration": "npm run build && vscode-test",
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.90.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.0",
+    "@vscode/vsce": "^3.2.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.0.0",
+    "globals": "^15.0.0",
+    "mocha": "^10.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.0.0"
+  }
+}
